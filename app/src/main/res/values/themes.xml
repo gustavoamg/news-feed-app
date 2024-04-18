@@ -1,0 +1,34 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.CriticalNewsFeedApp" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+    </style>
+
+    <style name="Theme.CriticalNewsFeedApp" parent="Base.Theme.CriticalNewsFeedApp" />
+
+    <style name="Theme.App" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorSurface">@color/colorPrimaryDark</item>
+        <item name="colorOnSurface">@color/white</item>
+        <item name="android:statusBarColor">?attr/colorPrimary</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+        <item name="textAppearanceTitleLarge">@style/TextAppearance.App.TitleLarge</item>
+        <item name="textAppearanceTitleMedium">@style/TextAppearance.App.TitleMedium</item>
+    </style>
+
+    <style name="TextAppearance.App.TitleLarge" parent="TextAppearance.Material3.TitleLarge">
+        <item name="fontFamily">@font/francois_one</item>
+        <item name="android:fontFamily">@font/francois_one</item>
+    </style>
+
+    <style name="TextAppearance.App.TitleMedium" parent="TextAppearance.Material3.TitleMedium">
+        <item name="fontFamily">@font/francois_one</item>
+        <item name="android:fontFamily">@font/francois_one</item>
+    </style>
+
+    <style name="TextAppearance.App.DisplaySmall" parent="TextAppearance.Material3.DisplaySmall">
+        <item name="fontFamily">@font/francois_one</item>
+        <item name="android:fontFamily">@font/francois_one</item>
+    </style>
+</resources>

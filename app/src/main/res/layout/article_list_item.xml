@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dim_layout_padding">
+
+    <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="350dp">
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="350dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/placeholder_drawable"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"/>
+
+            <ImageView
+                    android:id="@+id/article_picture_iv"
+                    android:layout_width="match_parent"
+                    android:layout_height="350dp"
+                    android:scaleType="centerCrop"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"/>
+
+
+            <TextView
+                    android:id="@+id/article_title_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:paddingStart="@dimen/dim_layout_padding"
+                    android:paddingEnd="@dimen/dim_layout_padding"
+                    android:paddingBottom="@dimen/dim_layout_padding"
+                    android:paddingTop="35dp"
+                    android:background="@drawable/news_text_mask"
+                    android:text="Article Title"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"
+                    />
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+</FrameLayout>
