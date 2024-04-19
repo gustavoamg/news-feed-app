@@ -2,33 +2,36 @@ package com.example.criticalnewsfeedapp
 
 import android.os.Bundle
 import androidx.appcompat.widget.Toolbar
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
+import com.example.criticalnewsfeedapp.databinding.ActivityMainBinding
+import com.example.criticalnewsfeedapp.databinding.FragmentArticlesListingBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : BiometricActivity() {
+    private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+
         setSupportActionBar(findViewById(R.id.topAppBar))
 
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-        val navController = navHostFragment.navController
+        val navController = binding.navHostFragment.getFragment<NavHostFragment>().findNavController()
 
         val appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.articlesListingFragment
             )
         )
-        findViewById<Toolbar>(R.id.topAppBar).setupWithNavController(navController, appBarConfiguration)
+        binding.topAppBar.setupWithNavController(navController, appBarConfiguration)
+        setContentView(binding.root)
     }
 
     fun setActionBarTitle(title: String) {
-        if(supportActionBar != null) {
-            supportActionBar!!.title = title
-        }
+        binding.topAppBar.title = title
     }
 }

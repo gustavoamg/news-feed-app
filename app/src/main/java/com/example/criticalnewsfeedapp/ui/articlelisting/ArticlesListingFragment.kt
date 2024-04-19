@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.window.core.layout.WindowWidthSizeClass
 import com.example.criticalnewsfeedapp.MainActivity
 import com.example.criticalnewsfeedapp.R
+import com.example.criticalnewsfeedapp.databinding.FragmentArticleBinding
+import com.example.criticalnewsfeedapp.databinding.FragmentArticlesListingBinding
 import com.example.criticalnewsfeedapp.utils.WindowUtils
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -22,6 +24,7 @@ class ArticlesListingFragment : Fragment() {
         fun newInstance() = ArticlesListingFragment()
     }
 
+    private lateinit var binding: FragmentArticlesListingBinding
     private val viewModel: ArticlesListingViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,19 +35,19 @@ class ArticlesListingFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val view = inflater.inflate(R.layout.fragment_articles_listing, container, false)
+        binding = FragmentArticlesListingBinding.inflate(layoutInflater)
 
         if (activity is MainActivity) {
             (activity as MainActivity).setActionBarTitle(getString(R.string.newsSourceName))
         }
 
-        val recyclerView: RecyclerView = view.findViewById(R.id.articles_listing_rv)
+        val recyclerView: RecyclerView = binding.articlesListingRv
         recyclerView.layoutManager = createLayoutManager()
         recyclerView.adapter = viewModel.articleListAdapter
 
         viewModel.newsLiveData.observe(viewLifecycleOwner, viewModel.newsLiveDataObserver)
 
-        return view
+        return binding.root
     }
 
     private fun createLayoutManager(): RecyclerView.LayoutManager {
